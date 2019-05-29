@@ -2,4 +2,4 @@
 Hangman game, built in javascript
 
 
-```http://togglegodmode.co.uk/hangman/```
+```<a href="http://togglegodmode.co.uk/hangman/">http://togglegodmode.co.uk/hangman/</a>```
