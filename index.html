@@ -3,48 +3,30 @@
     <head>
         <title>Hangman</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <div class="container">
-            <h2>Guess the word</h2>
-            <p id="lives">Number of guesses left: </p>
-            <p id="noLetters">Word length: </p>
-
+            <div id="gameboard">
+                <img src="images/11.jpg" id="gameImage" />
+            </div>
+            <h3 id="display"></h3>
             <form method="POST" id="userInput">
-                <input type="text" id="userValue" maxlength="1" required>
-                <input type="submit" value="submit" /> 
+                <input type="text" id="userValue" maxlength="1" placeholder="Guess your letter here" required>
+                <input type="submit" value="Submit" /> 
             </form>
+            <div class="feedback">
+                <p id="lives">Number of guesses left: </p>
+                <p id="noLetters">Word length: </p>
+            </div>
         </div>
 
-        <script>
-            //setting some variables for the game
-            var noOfGuesses = 11;
-            var words = ['test', 'computer', 'window', 'desk', 'tiger', 'panda', 'water bottle', 'yellow'];
-
-            //Pick a word for the game
-            var rand = Math.floor(Math.random() * words.length);
-            var word = words[rand];
-            var letters = word.length;
-            
-            //Grab some elements for user feedback
-            var lives = document.getElementById('lives');
-            var noLetters = document.getElementById('noLetters');
-
-            function updateInfo () {
-                lives.innerHTML = 'Number of guesses left: ' + noOfGuesses;
-                noLetters.innerHTML = 'The word is ' + letters + ' letters';
-            }
-
-            document.querySelector("#userInput").addEventListener("submit", function(e){
-                e.preventDefault(); 
-                value = document.getElementById('userValue').value;
-            });
-
-            updateInfo();
-        </script>
+        <script src="/js/script.js"></script>
     </body>
 </html>
